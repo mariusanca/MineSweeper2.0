@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Minesweeper</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="input">
+        <div>
+            <h6>Please enter the number of lines: (enter a number between 10 and 30)</h6>
+            <input type="number" id="linesNumber" min="10" max="30" value="15">
+            <button type="button" class="btn btn-primary" id="lines-number()" onclick="insertLines()">Enter</button>
+            <span id="line-insert-message"></span>
+        </div>
+        <div>
+            <h6>Please enter the number of columns: (enter a number between 10 and 30)</h6>
+            <input type="number" id="columnsNumber" min="10" max="30" value="15">
+            <button type="button" class="btn btn-primary" id="columns-number()" onclick="insertColumns()">Enter</button>
+            <span id="column-insert-message"></span>
+        </div>
+        <div>
+            <h6>Please select the difficulty level (Easy/Medium/Hard)</h6>
+            <input id="difficulty" list="suggestions">
+            <datalist id="suggestions">
+                <option value="Easy">
+                <option value="Medium">
+                <option value="Hard">
+            </datalist>
+            <button type="button" class="btn btn-primary" id="difficulty-level" onclick="insertDifficulty()">Enter</button>
+            <span id="difficulty-insert-message"></span>
+        </div>
+        <br>
+    </div>
+    <div class="start-button">
+        <button type="button" class="btn btn-success" onclick="startGame()" id="start-button">Start</button>
+        <button type="button" class="btn btn-danger" onclick="location.reload();" id="start-button">Retry</button>
+    </div>
+    <div id="top-box">
+        <img id ='top-image'src="Images/blank.png" class="game-over">
+    </div>
+    <div class="initial-box" id="box" style="visibility: hidden">
+        <div>
+            <h1 class="title">Minesweeper</h1>
+        </div>
+        <div class="display-box" id="display-box">
+            <div id="bombs-left">
+                <h2>010</h2>
+            </div>
+            <div class="time-passed">
+                <h2 id="timer">00:00</h2>
+            </div>
+        </div>
+            <div id="game-box">
+        </div>
+        <div class="game-rules" id="game-rules">
+        </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

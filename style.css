@@ -1,0 +1,224 @@
+@viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+}
+
+body {
+    font-family: Arial;
+    font-size: 20px;
+    padding: 50px;
+    width: 600px;
+    margin-top: -40px;
+}
+
+.glowing-text {
+    font-weight: bolder;
+    font-size: larger;
+    color: rgb(209, 1, 1);
+    text-shadow:
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 30px #fe3052,
+        0 0 40px #f6153e;
+        margin: auto;
+}
+
+#top-box {
+    width: 500px;
+    height: 93px;
+    align-items: center;
+    text-align: center;
+}
+
+.initial-box {
+    background-color: rgb(210, 210, 210);
+}
+
+.title {
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+    color: rgb(95, 94, 94);
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    color: rgb(255, 17, 17);
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: -5px;
+}
+
+h3 {
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.display-box {
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 4px;
+    border-top-color:rgb(125, 125, 123);
+    border-left-color: rgb(125, 125, 123);
+    border-right-color: aliceblue;
+    border-bottom-color: aliceblue;
+    display:inline-flex;
+    height: 50px;
+    margin-left: 23px;
+    margin-top: 5px;
+}
+
+#game-box {
+    background-color: rgb(210, 210, 210);
+    border-style: solid;
+    border-width: 4px;
+    border-top-color:rgb(125, 125, 123);
+    border-left-color: rgb(125, 125, 123);
+    border-right-color: aliceblue;
+    border-bottom-color: aliceblue;
+    border-radius: 2px;
+    margin-left: 23px;
+    margin-top: 10px;
+    float:left;
+    clear:none;  
+}
+
+.start-button {
+    height: 50px;
+    margin-left: 80px;
+    margin-top: 3px;
+}
+
+#bombs-left {
+    background-color: rgb(47, 47, 47);
+    border-style: solid;
+    border-color: rgb(145, 145, 145);
+    border-radius: 10%;
+    width: 85px;
+    height: 35px;
+    align-self: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.5px;
+}
+
+.time-passed {
+    background-color: rgb(47, 47, 47);
+    border-style: solid;
+    border-color: rgb(145, 145, 145);
+    border-radius: 10%;
+    width: 105px;
+    height: 35px;
+    text-align: center;
+    align-self: flex-start;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2.5px;
+}
+
+#timer {
+    margin-top: -4px;
+}
+
+.box {
+    float:left;
+    clear:none; 
+    border-style: solid;
+    border-width: 0.2px;
+    border-color: rgb(181, 180, 180);
+    width: 29.5px;
+    height: 29.5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.bomb-box {
+    float:left;
+    clear:none;  
+    background-image: url('Images/bomb.png');
+    background-size: 29px 29px;
+    width: 29.5px;
+    height: 29.5px;
+    color: red;
+    border-radius: 2px;
+}
+
+.empty-box {
+    float:left;
+    clear:none; 
+    border-style: solid;
+    border-width: 0.2px;
+    border-color: rgb(181, 180, 180);
+    width: 29.5px;
+    height: 29.5px;
+    text-align: center;
+}
+
+.button {
+    float:left;
+    clear:none; 
+    background-color: rgb(210, 210, 210);
+    width: 29.5px;
+    height: 29.5px;
+    border-style: solid;
+    border-width: 3px;
+    border-left-color: aliceblue;
+    border-top-color: aliceblue;
+    border-right-color: rgb(125, 125, 123);
+    border-bottom-color: rgb(125, 125, 123);
+    border-radius: 2px;
+    font-size: small;
+}
+
+.restart-button {
+    height: 30px;
+    margin-left: 80px;
+    margin-top: -5px;
+}
+
+.game-rules {
+    align-items: center;
+    text-align: center;
+    font-size: x-small;
+    color: rgb(111, 111, 111);
+    margin-top: 500px;
+}
+
+#line-insert-message {
+    font-size: medium;
+}
+
+#column-insert-message {
+    font-size: medium;
+}
+
+#difficulty-insert-message {
+    font-size: medium;
+}
+
+#linesNumber {
+    width: 3em;
+    height: 35px;
+}
+
+#columnsNumber {
+    width: 3em;
+    height: 35px;
+}
+
+#input {
+    width: 600px;
+}
+
+#difficulty {
+    width: 5em;
+    height: 35px;
+}
+
+.btn {
+    height: 35px;
+    align-content: center;
+    text-align: center;
+}
