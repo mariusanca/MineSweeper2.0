@@ -8,6 +8,7 @@ let gameIsActive = false;
 let numberOfLines = 0;
 let numberOfColumns = 0;
 let numberOfMines = 0;
+let dividend = 0;
 
 function displayFlagsLeft() { //show the number of flags left to be placed
     let element = document.getElementById('bombs-left');
@@ -215,6 +216,8 @@ function setBoardDimmensions() { //set the game board style attributes according
     document.getElementById('game-box').style.width = `${width + 3}px`;
     document.getElementById('display-box').style.width = `${width}px`;
     document.getElementById('box').style.width = `${width + 50}px`;
+    document.getElementById('game-rules').style.width = `${width}px`;
+    document.getElementById('top-box').style.width = `${width}px`;
     let height = numberOfColumns * 30;
     document.getElementById('game-box').style.height = `${height + 3}px`;
     document.getElementById('box').style.height = `${height + 125}px`;
@@ -272,7 +275,7 @@ function startGame() { //start the game
     gameIsActive = true;
 }
 
-function insertLines() { //read the number of lines assigned by the user
+function insertLines() { //read and set the number of lines assigned by the user
     let lines = document.getElementById('linesNumber').value;
     if (lines >= 10 && lines <= 30) {
         numberOfLines = lines;
@@ -286,7 +289,7 @@ function insertLines() { //read the number of lines assigned by the user
     }
 }
 
-function insertColumns() { //read the number of columns assigned by the user
+function insertColumns() { //read and set the number of columns assigned by the user
     let columns = document.getElementById('columnsNumber').value;
     if (columns >= 10 && columns <= 30) {
         numberOfColumns = columns;
@@ -301,19 +304,25 @@ function insertColumns() { //read the number of columns assigned by the user
     boxesToCheck = numberOfLines * numberOfColumns;
 }
 
-function insertDifficulty() { //read the difficulty level assigned by the user
+function insertDifficulty() { //read and set the difficulty level assigned by the user
+    dividend = parseInt(numberOfLines) + parseInt(numberOfColumns);
     let difficultyLevel = document.getElementById('difficulty').value;
     let message = document.getElementById('difficulty-insert-message');
     message.innerHTML = 'Difficulty level assigned complete!';
     message.style.color = 'green';
-    if (difficultyLevel == 'Easy') {
-        numberOfMines = 5;
-    } else if (difficultyLevel == 'Medium') {
-        numberOfMines = 10;
-    } else if (difficultyLevel == 'Hard') {
-        numberOfMines = 15;
-    } else {
-        message.innerHTML = 'Invalid input, please insert: Easy, Medium or Hard';
+    if (numberOfLines == 0 || numberOfColumns == 0) {
+        message.innerHTML = 'Please set the number of Lines and Columns first!';
         message.style.color = 'red';
+    } else {
+        if (difficultyLevel == 'Easy') {
+            numberOfMines = parseInt(dividend / 4);
+        } else if (difficultyLevel == 'Medium') {
+            numberOfMines = parseInt(dividend / 2);
+        } else if (difficultyLevel == 'Hard') {
+            numberOfMines = parseInt(dividend / 1.5);
+        } else {
+            message.innerHTML = 'Invalid input, please insert: Easy, Medium or Hard';
+            message.style.color = 'red';
+        }
     }
 }
