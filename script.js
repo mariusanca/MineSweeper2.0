@@ -212,14 +212,22 @@ function drawTable() { //draw the buttons on the game board
 }
 
 function setBoardDimmensions() { //set the game board style attributes according to the number of the boxes to be checked
-    let width = numberOfLines * 30;
-    document.getElementById('game-box').style.width = `${width + 3}px`;
+    let width = numberOfColumns * 30;
+    let widthDivident = 0;
+    if (numberOfColumns < 15) {
+        widthDivident = 30;
+    } else if (numberOfColumns < 22) {
+        widthDivident = 15;
+    } else {
+        widthDivident = 1;
+    }
+    document.getElementById('game-box').style.width = `${width + (widthDivident / numberOfColumns)}px`;
     document.getElementById('display-box').style.width = `${width}px`;
     document.getElementById('box').style.width = `${width + 50}px`;
     document.getElementById('game-rules').style.width = `${width}px`;
     document.getElementById('top-box').style.width = `${width}px`;
-    let height = numberOfColumns * 30;
-    document.getElementById('game-box').style.height = `${height + 3}px`;
+    let height = numberOfLines * 30;
+    document.getElementById('game-box').style.height = `${height + (30 / numberOfLines)}px`;
     document.getElementById('box').style.height = `${height + 125}px`;
 
 }
