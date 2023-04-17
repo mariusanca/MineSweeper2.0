@@ -274,13 +274,18 @@ function setMatrix() { //set the lines and columns of the matrix which will be u
 }
 
 function startGame() { //start the game
-    myInterval = setInterval(timer, 1000);
-    setMatrix();
-    setBombs();
-    displayGameBoard();
-    displayRules();
-    document.getElementById('start-button').disabled = true;
-    gameIsActive = true;
+    if (numberOfLines == 0 || numberOfColumns == 0 || numberOfMines == 0) {
+        document.getElementById('attributes-set').style.color = 'red';
+        document.getElementById('attributes-set').innerText = 'Please set all the attributes before pressing the Start button!'
+    } else {
+        myInterval = setInterval(timer, 1000);
+        setMatrix();
+        setBombs();
+        displayGameBoard();
+        displayRules();
+        document.getElementById('start-button').disabled = true;
+        gameIsActive = true;
+    }
 }
 
 function insertLines() { //read and set the number of lines assigned by the user
