@@ -1,3 +1,13 @@
+@-ms-viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+}
+
+@-o-viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+}
+
 @viewport {
     width: device-width ;
     zoom: 1.0 ;
@@ -221,4 +231,11 @@ h3 {
     height: 35px;
     align-content: center;
     text-align: center;
+}
+
+#attributes-set {
+    font-size: 20px;
+    font-weight: 100;
+    font-style: italic;
+    color: rgb(154, 153, 153);
 }
