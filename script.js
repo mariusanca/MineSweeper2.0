@@ -229,7 +229,6 @@ function setBoardDimmensions() { //set the game board style attributes according
     let height = numberOfLines * 30;
     document.getElementById('game-box').style.height = `${height + (30 / numberOfLines)}px`;
     document.getElementById('box').style.height = `${height + 125}px`;
-
 }
 
 function displayGameBoard() { // display the game board which contains the boxes to be checked
@@ -248,7 +247,7 @@ function setBombs() { //set the bombs random on the matrix
         let bombLine = Math.floor(Math.random() * (numberOfLines - 1)) + 1;
         let bombColumn = Math.floor(Math.random() * (numberOfColumns - 1)) + 1;
         if (matrix[bombLine][bombColumn].value == -1) {
-            ++bombsToBePlaced; //re-try to place the bomb because the place is not correct
+            ++bombsToBePlaced; //re-try to place the bomb because there is already a bomb in that place
         } else {
             matrix[bombLine][bombColumn].value = -1;
             for (let line = bombLine - 1; line <= bombLine + 1; ++line) {
@@ -270,21 +269,6 @@ function setMatrix() { //set the lines and columns of the matrix which will be u
             let element = {value : 0, isChecked : false, flag : false};
             matrix[lineIndex][columnIndex] = element;
         }
-    }
-}
-
-function startGame() { //start the game
-    if (numberOfLines == 0 || numberOfColumns == 0 || numberOfMines == 0) {
-        document.getElementById('attributes-set').style.color = 'red';
-        document.getElementById('attributes-set').innerText = 'Please set all the attributes before pressing the Start button!'
-    } else {
-        myInterval = setInterval(timer, 1000);
-        setMatrix();
-        setBombs();
-        displayGameBoard();
-        displayRules();
-        document.getElementById('start-button').disabled = true;
-        gameIsActive = true;
     }
 }
 
@@ -337,5 +321,23 @@ function insertDifficulty() { //read and set the difficulty level assigned by th
             message.innerHTML = 'Invalid input, please insert: Easy, Medium or Hard';
             message.style.color = 'red';
         }
+    }
+}
+
+function startGame() { //start the game
+    insertLines();
+    insertColumns();
+    insertDifficulty();
+    if (numberOfLines == 0 || numberOfColumns == 0 || numberOfMines == 0) {
+        document.getElementById('attributes-set').style.color = 'red';
+        document.getElementById('attributes-set').innerText = 'Please set all the attributes before pressing the Start button!'
+    } else {
+        myInterval = setInterval(timer, 1000);
+        setMatrix();
+        setBombs();
+        displayGameBoard();
+        displayRules();
+        document.getElementById('start-button').disabled = true;
+        gameIsActive = true;
     }
 }
